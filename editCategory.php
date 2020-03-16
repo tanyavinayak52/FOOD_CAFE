@@ -13,6 +13,10 @@
 <body>
 <?php
 include_once "adminheader.php";
+$categoryname=urldecode($_REQUEST['q']);
+$s="select * from category where categoryname='".urlencode($categoryname)."'";
+$result=mysqli_query($conn,$s);
+$row=mysqli_fetch_array($result);
 ?>
 <div class="container">
     <div class="row">
@@ -20,12 +24,12 @@ include_once "adminheader.php";
             <h1 class="text-center">Category</h1>
         </div>
     </div>
-    <form action="addCategory.php" method="post">
+    <form action="updateCategory.php" method="post">
         <div class="form-group row">
             <label for="username" class="col-md-2">Category name</label>
             <div class="col-md-10">
                 <input type="text" name="Categoryname" class="form-control" data-rule-required="true"
-                       id="catname"
+                       id="catname" readonly value="<?php echo urldecode($row[0]) ?>"
                        placeholder="name of category">
             </div>
         </div>
@@ -35,7 +39,7 @@ include_once "adminheader.php";
             <div class="col-md-10">
                 <textarea name="description" class="form-control" data-rule-required="true"
                           id="desc"
-                          placeholder="enter text here"></textarea>
+                          placeholder="enter text here"><?php echo urldecode($row[1])    ?></textarea>
             </div>
         </div>
 

@@ -28,7 +28,7 @@ if (!isset($_SESSION["username"])) {
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Category</a>
                     <div class="dropdown-menu">
                         <a href="category.php" class="dropdown-item">Add </a>
-                        <a href="viewAdmin.php" class="dropdown-item">View</a>
+                        <a href="viewCategory.php" class="dropdown-item">View</a>
                     </div>
                 </li>
 
